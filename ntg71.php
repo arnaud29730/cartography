@@ -2,7 +2,7 @@
 
 // DEBUG permet de ne traiter qu'un fichier a la fois
 $runMNTFileOnce = true;//on implente nuage de point d'abord
-$runPCFileOnce = false;//test ok il reste a enregistrer les donnÈes en bdd 
+$runPCFileOnce = false;//test ok il reste a enregistrer les donn√©es en bdd 
 
 $currentFile_DATASRC = 'UNKNOW';
 $currentFile_NW_XPLONDD=0.0;
@@ -34,12 +34,12 @@ function dirToArray($dir) {
 				{
     			case "asc":
 					if ( $runMNTFileOnce) { _AnalyseFichierMNT($dir . DIRECTORY_SEPARATOR . $value);$runMNTFileOnce=false; }
-					//echo 'mnt trouvÈ : '.$value.'<br/>';//v0.02	
+					//echo 'mnt trouv√© : '.$value.'<br/>';//v0.02	
    					break;
 
     			case "xyz":
     				if ( $runPCFileOnce) { _AnalyseFichierPC($dir . DIRECTORY_SEPARATOR . $value);$runPCFileOnce=false;	}
-					//echo 'nuage de point trouvÈ : '.$value.'<br/>';
+					//echo 'nuage de point trouv√© : '.$value.'<br/>';
     				break;
 
     			case "":break; // Handle file extension for files ending in '.'
@@ -64,7 +64,7 @@ ExtractFileNameInfo($fpathstring);
 
 	$lines = file($fpathstring);
   $dataline_num=0;
-  // Affiche toutes les lignes du tableau comme code HTML, avec les numÈros de ligne
+  // Affiche toutes les lignes du tableau comme code HTML, avec les num√©ros de ligne
 /*
 echo $currentFile_DATASRC. "<br />\n"; // piece2
 echo $currentFile_NW_XPLONDD. "<br />\n"; // piece2
@@ -75,7 +75,7 @@ echo $currentFile_PCS. "<br />\n"; // piece2
 
   foreach ($lines as $line_num => $line) {
 
-//les lignes 0 ‡ 5 soit les 6 premieres lignes sont des metas data
+//les lignes 0 √† 5 soit les 6 premieres lignes sont des metas data
 //on affiche
     if($line_num < 6 )
     {
@@ -166,7 +166,7 @@ switch($line_num)
 
 
       }//fin foreach $dataline_datas
-        echo $dataline_datas_good / (count($dataline_datas)-1) * 100 . " de donnÈes <br />\n";
+        echo $dataline_datas_good / (count($dataline_datas)-1) * 100 . " de donn√©es <br />\n";
  
  $dataline_num++;//nRow
     }
@@ -185,7 +185,7 @@ function _AnalyseFichierPC( $fpathstring )
 
 	$lines = file($fpathstring);
 
-  // Affiche toutes les lignes du tableau comme code HTML, avec les numÈros de ligne
+  // Affiche toutes les lignes du tableau comme code HTML, avec les num√©ros de ligne
   foreach ($lines as $line_num => $line) {
 
 	 echo "<hr/>\n";
@@ -213,9 +213,9 @@ function _AnalyseFichierPC( $fpathstring )
 //L3D-MAR FRA MNT5
 
 
-//20140923 date de rÈalisation 
+//20140923 date de r√©alisation 
 
-//projection coordonnÈes et systËme associÈ
+//projection coordonn√©es et syst√®me associ√©
 //
 
 
@@ -230,7 +230,7 @@ function ExtractFileNameInfo($filenamepath)
 
 	$currentFile_DATASRC = $metas[0] .' ' . $metas[1].' ' . $metas[4];//
     echo htmlspecialchars($currentFile_DATASRC) . "<br />\n";
-//angle NW dalle p7 doc shom bathymÈtrie
+//angle NW dalle p7 doc shom bathym√©trie
 $currentFile_NW_XPLONDD=floatval($metas[2])*1000;
 echo number_format($currentFile_NW_XPLONDD, 2, ',', ' '). "<br />\n";
 
